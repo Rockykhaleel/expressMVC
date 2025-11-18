@@ -1,10 +1,12 @@
 const express = require("express");
 const bookRoutes = require("./routes/bookRoutes");
+const simpleLogger = require("./middleware/simpleLogger");
 
 const app = express();
 const PORT = 8080;
 
 app.use(express.json());
+app.use(simpleLogger);
 
 app.get("/", (req, res) => {
   res.json({
