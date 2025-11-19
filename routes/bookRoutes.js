@@ -1,15 +1,16 @@
 const express = require("express");
 const router = express.Router();
 const bookController = require("../controllers/bookController");
+const checkApiKey = require("../middleware/chechApiKey");
 
-router.get("/", bookController.getAllBooks);
+router.get("/", checkApiKey, bookController.getAllBooks);
 
-router.get("/:id", bookController.getBooksByID);
+router.get("/:id", checkApiKey, bookController.getBooksByID);
 
-router.post("/create", bookController.createBooks);
+router.post("/create", checkApiKey, bookController.createBooks);
 
-router.put("/:id", bookController.updateBooks);
+router.put("/:id", checkApiKey, bookController.updateBooks);
 
-router.delete("/:id", bookController.deleteBooks);
+router.delete("/:id", checkApiKey, bookController.deleteBooks);
 
 module.exports = router;
