@@ -7,7 +7,7 @@ const checkApiKey = (req, res, next) => {
     });
   }
   if (apiKey !== "abcd-0123") {
-    return res.status(4.3).json({
+    return res.status(403).json({
       success: false,
       message: "Wrong API key!",
     });
